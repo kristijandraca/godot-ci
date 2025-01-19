@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     osslsigncode \
     && rm -rf /var/lib/apt/lists/*
 
-# When in doubt, see the downloads page: https://downloads.tuxfamily.org/godotengine/
+# When in doubt, see the downloads page: https://godotengine.org/download/archive/
 ARG GODOT_VERSION="4.3"
 
 # Example values: stable, beta3, rc1, dev2, etc.
@@ -33,8 +33,8 @@ ARG SUBDIR=""
 ARG GODOT_TEST_ARGS=""
 ARG GODOT_PLATFORM="linux.x86_64"
 
-RUN wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}${SUBDIR}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_${GODOT_PLATFORM}.zip \
-    && wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}${SUBDIR}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz \
+RUN wget https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-${RELEASE_NAME}/Godot_v4.1-${RELEASE_NAME}_${GODOT_PLATFORM}.zip \
+    && wget https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-${RELEASE_NAME}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz \
     && mkdir ~/.cache \
     && mkdir -p ~/.config/godot \
     && mkdir -p ~/.local/share/godot/export_templates/${GODOT_VERSION}.${RELEASE_NAME} \
